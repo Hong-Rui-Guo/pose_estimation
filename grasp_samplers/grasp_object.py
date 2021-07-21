@@ -17,7 +17,7 @@ from PIL import Image
 from torch.autograd import Variable
 from torchvision import transforms
 
-import deeper_models
+from grasp_samplers import deeper_models
 
 sys.modules["patch_learner.deeper_models"] = deeper_models
 

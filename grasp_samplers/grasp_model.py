@@ -20,7 +20,7 @@ import cv2
 #cv2 = try_cv2_import()
 
 import numpy as np
-import rospy
+# import rospy
 from grasp_samplers.grasp_object import GraspTorchObj
 from grasp_samplers.grasp_predictor import Predictors
 
@@ -195,7 +195,8 @@ class GraspModel(object):
         :rtype: tuple
         """
         start_time = time.time()
-        rospy.loginfo("Running TORCH-GRASPING!")
+        # rospy.loginfo("Running TORCH-GRASPING!")
+        print("Running TORCH-GRASPING!")
 
         # First round of forward pass
         result = self._predict_image(I, self._nbatches, self._batch_size)
@@ -284,7 +285,10 @@ class GraspModel(object):
             theta_choice_ind,
             int(self.patchsize),
         )
-        rospy.loginfo(
+        # rospy.loginfo(
+        #     "Grasp prediction took: {} (s)" "".format(time.time() - start_time)
+        # )
+        print(
             "Grasp prediction took: {} (s)" "".format(time.time() - start_time)
         )
         return selected_grasp
@@ -310,7 +314,8 @@ class GraspModel(object):
         predictions = []
         patch_Hs = []
         patch_Ws = []
-        rospy.loginfo("Torch grasp_model: Predicting on samples")
+        # rospy.loginfo("Torch grasp_model: Predicting on samples")
+        print("Torch grasp_model: Predicting on samples")
         for _ in range(nbs):
             P.graspNet_grasp(patch_size=gsize, num_samples=bs)
             predictions.append(P.norm_vals)

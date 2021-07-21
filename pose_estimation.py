@@ -28,7 +28,7 @@ def main():
     """
     # initialize deep grasping network
     grasp_model = GraspModel(
-            model_name=model_name, url=url, nsamples=n_samples, patchsize=patch_size
+            model_name=model_name, url=url, nsamples=N_SAMPLES, patchsize=PATCH_SIZE
         )
 
 
